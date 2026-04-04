@@ -184,7 +184,18 @@ function renderUI() {
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RoadChain | BlackRoad OS</title>
+<title>RoadChain — Immutable Blockchain Ledger — BlackRoad OS</title>
+<meta name="description" content="Immutable blockchain ledger with SHA-256 hashing, block explorer, chain verification, and Merkle proofs. Every action stamped and sealed.">
+<meta name="robots" content="index, follow, noai, noimageai">
+<link rel="canonical" href="https://roadchain.blackroad.io/">
+<meta property="og:title" content="RoadChain — Immutable Ledger — BlackRoad OS">
+<meta property="og:description" content="Blockchain ledger with SHA-256 hashing, block explorer, and chain verification. Every action stamped.">
+<meta property="og:url" content="https://roadchain.blackroad.io/"><meta property="og:type" content="website">
+<meta property="og:image" content="https://images.blackroad.io/pixel-art/road-logo.png"><meta property="og:site_name" content="BlackRoad OS">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="RoadChain — Immutable Ledger — BlackRoad OS">
+<meta name="twitter:description" content="Blockchain ledger with SHA-256 hashing, block explorer, and chain verification.">
+<meta name="twitter:image" content="https://images.blackroad.io/pixel-art/road-logo.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"RoadChain","url":"https://roadchain.blackroad.io/","description":"Immutable blockchain ledger with SHA-256 hashing, block explorer, and chain verification.","applicationCategory":"BusinessApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"author":{"@type":"Organization","name":"BlackRoad OS, Inc.","url":"https://blackroad.io"}}</script>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   body {

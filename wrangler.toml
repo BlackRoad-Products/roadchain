@@ -1,3 +1,7 @@
 name = "roadchain-blackroad"
 main = "src/worker.js"
 compatibility_date = "2026-03-31"
+
+[[routes]]
+pattern = "roadchain.blackroad.io/*"
+zone_name = "blackroad.io"

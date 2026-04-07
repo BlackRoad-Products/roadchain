@@ -1,7 +1,18 @@
 name = "roadchain-blackroad"
-main = "src/worker.js"
-compatibility_date = "2026-03-31"
-
+main = "src/index.ts"
+compatibility_date = "2025-01-01"
+compatibility_flags = ["nodejs_compat"]
 [[routes]]
 pattern = "roadchain.blackroad.io/*"
 zone_name = "blackroad.io"
+[vars]
+ENVIRONMENT = "production"
+SERVICE_NAME = "roadchain"
+VERSION = "2.0.0"
+[[kv_namespaces]]
+binding = "STORE"
+id = "6c8559e6e03c41d384cc19c52649abc1"
+[[d1_databases]]
+binding = "DB"
+database_name = "blackroad-os-main"
+database_id = "e2c6dcd9-c21a-48ac-8807-7b3a6881c4f7"

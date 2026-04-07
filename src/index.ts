@@ -47,20 +47,20 @@ h1{font-size:2rem;font-weight:700;background:var(--grad);-webkit-background-clip
 .sub{font-size:.75rem;color:var(--sub);font-family:'JetBrains Mono',monospace;margin-bottom:24px}
 .stats{display:flex;gap:12px;margin-bottom:24px}
 .stat{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:14px;flex:1;text-align:center}
-.stat-n{font-size:1.6rem;font-weight:700;color:var(--purple)}
+.stat-n{font-size:1.6rem;font-weight:700;color:#e0e0e0}
 .stat-l{font-size:.65rem;color:var(--sub);font-family:'JetBrains Mono',monospace;margin-top:3px}
 .append-form{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:20px;margin-bottom:20px}
 .ct{font-size:.65rem;color:var(--sub);text-transform:uppercase;letter-spacing:.08em;font-family:'JetBrains Mono',monospace;margin-bottom:12px}
 .form-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:10px}
 input,select{width:100%;padding:8px 12px;background:#0d0d0d;border:1px solid var(--border);border-radius:6px;color:var(--text);font-family:'JetBrains Mono',monospace;font-size:.78rem;outline:none}
-input:focus{border-color:var(--purple)}
+input:focus{border-color:#e0e0e0}
 .btn{padding:9px 20px;background:var(--purple);color:#fff;border:none;border-radius:6px;cursor:pointer;font-weight:700;font-size:.82rem}
 .chain{display:flex;flex-direction:column;gap:8px}
 .block{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:14px;position:relative}
 .block::before{content:'';position:absolute;left:20px;top:-8px;width:2px;height:8px;background:var(--border)}
 .block:first-child::before{display:none}
 .block-header{display:flex;align-items:center;gap:10px;margin-bottom:8px}
-.block-index{font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--purple);background:rgba(156,39,176,.1);border:1px solid rgba(156,39,176,.2);padding:2px 8px;border-radius:4px}
+.block-index{font-family:'JetBrains Mono',monospace;font-size:.7rem;color:#e0e0e0;background:rgba(156,39,176,.1);border:1px solid rgba(156,39,176,.2);padding:2px 8px;border-radius:4px}
 .block-type{font-family:'JetBrains Mono',monospace;font-size:.68rem;color:var(--sub);text-transform:uppercase}
 .block-author{font-size:.75rem;font-weight:600}
 .block-hash{font-family:'JetBrains Mono',monospace;font-size:.65rem;color:#222;margin-top:6px}

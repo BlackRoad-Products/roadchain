@@ -39,7 +39,7 @@ function page(): Response {
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-:root{--bg:#030303;--card:#0a0a0a;--border:#111;--text:#f0f0f0;--sub:#444;--purple:#9C27B0;--grad:linear-gradient(135deg,#9C27B0,#4488FF)}
+:root{--bg:#030303;--card:#0a0a0a;--border:#111;--text:#f0f0f0;--sub:#444;--purple:#7800FF;--grad:linear-gradient(135deg,#7800FF,#3E84FF)}
 html,body{min-height:100vh;background:var(--bg);color:var(--text);font-family:'Space Grotesk',sans-serif}
 .grad-bar{height:2px;background:var(--grad)}
 .wrap{max-width:1000px;margin:0 auto;padding:32px 20px}

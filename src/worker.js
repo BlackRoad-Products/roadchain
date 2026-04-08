@@ -184,6 +184,7 @@ function renderUI() {
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://images.blackroad.io/brand/brand.css">
 <title>RoadChain — Immutable Blockchain Ledger — BlackRoad OS</title>
 <meta name="description" content="Immutable blockchain ledger with SHA-256 hashing, block explorer, chain verification, and Merkle proofs. Every action stamped and sealed.">
 <meta name="robots" content="index, follow, noai, noimageai">

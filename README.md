@@ -84,7 +84,7 @@ RoadChain is the integration backbone — **58 webhook handlers live**:
 
 ## Status
 
-**LIVE** — 28+ blocks, 27.3 ROAD minted, 11 holders, 58 platforms | [chain.blackroad.io](https://chain.blackroad.io)
+**LIVE** — 28+ blocks, 27.3 ROAD minted, 11 holders, 58 platforms | [roadchain.blackroad.io](https://roadchain.blackroad.io)
 
 ## How It Powers The BlackRoad
 

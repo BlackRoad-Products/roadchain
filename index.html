@@ -1,399 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RoadChain — The Ledger — BlackRoad OS</title>
-<meta name="description" content="Your identity. Your transactions. Gematria reads the patterns so you never miss a signal.">
-<meta property="og:title" content="RoadChain — BlackRoad OS">
-<meta property="og:description" content="Your identity. Your transactions. Gematria reads the patterns so you never miss a signal.">
-<meta property="og:url" content="https://roadchain.blackroad.io">
-<meta property="og:type" content="website">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-:root{--g:linear-gradient(90deg,#FF6B2B,#FF2255,#CC00AA,#8844FF,#4488FF,#00D4FF);--g135:linear-gradient(135deg,#FF6B2B,#FF2255,#CC00AA,#8844FF,#4488FF,#00D4FF);--bg:#000;--card:#0a0a0a;--elevated:#111;--hover:#181818;--border:#1a1a1a;--muted:#444;--sub:#737373;--text:#f5f5f5;--white:#fff;--sg:'Space Grotesk',sans-serif;--jb:'JetBrains Mono',monospace}
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--text);font-family:var(--sg);line-height:1.6;overflow-x:hidden}
-::-webkit-scrollbar{width:3px}::-webkit-scrollbar-track{background:#000}::-webkit-scrollbar-thumb{background:#1a1a1a;border-radius:2px}
-a{color:var(--text);text-decoration:none}
-button{font-family:var(--sg);cursor:pointer}
-img{max-width:100%}
-.grad-bar{height:3px;background:var(--g)}
-.container{max-width:1000px;width:100%;margin:0 auto;padding:0 24px}
-.section{padding:72px 0}
-.section-num{font-family:var(--jb);font-size:10px;color:var(--muted);letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px}
-.section-title{font-weight:700;font-size:28px;color:var(--white);margin-bottom:8px}
-.section-desc{font-size:14px;color:var(--sub);max-width:460px;line-height:1.7}
-.divider{height:1px;background:var(--border)}
-nav{position:fixed;top:3px;left:0;right:0;z-index:100;padding:0 24px}
-.nav-inner{max-width:1000px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:10px 20px;background:rgba(0,0,0,.9);backdrop-filter:blur(16px);border:1px solid var(--border);border-radius:10px}
-.nav-logo{font-weight:700;font-size:16px;color:var(--white);display:flex;align-items:center;gap:10px}
-.nav-logo-bar{width:20px;height:3px;border-radius:2px;background:var(--g)}
-.nav-links{display:flex;gap:24px}
-.nav-links a{font-size:12px;font-weight:500;color:var(--sub);transition:color .15s}
-.nav-links a:hover{color:var(--white)}
-.btn{display:inline-flex;align-items:center;gap:8px;padding:8px 18px;border-radius:6px;font-weight:600;font-size:12px;border:none;transition:all .15s}
-.btn-white{background:var(--white);color:#000}
-.btn-white:hover{background:#e0e0e0}
-.btn-outline{background:transparent;border:1px solid var(--border);color:var(--text)}
-.btn-outline:hover{border-color:#444}
-.btn-lg{padding:13px 32px;font-size:14px;border-radius:8px}
-.hero{min-height:92vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px 24px 80px;position:relative}
-.hero-tag{font-family:var(--jb);font-size:10px;color:var(--sub);letter-spacing:.15em;text-transform:uppercase;margin-bottom:28px;display:flex;align-items:center;gap:8px}
-.hero-dot{width:5px;height:5px;border-radius:50%;background:var(--white);animation:pulse 2.5s ease-in-out infinite}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
-.hero-title{font-size:clamp(44px,8vw,84px);font-weight:700;line-height:.92;color:var(--white);letter-spacing:-.04em;margin-bottom:20px}
-.hero-sub{font-size:clamp(14px,1.8vw,17px);color:var(--sub);max-width:500px;margin:0 auto 40px;line-height:1.7}
-.hero-actions{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
-.hero-stats{display:flex;gap:48px;margin-top:72px;flex-wrap:wrap;justify-content:center}
-.hero-stat{text-align:center}
-.hero-stat-n{font-size:26px;font-weight:700;color:var(--white);font-family:var(--jb)}
-.hero-stat-l{font-size:9px;color:var(--muted);font-family:var(--jb);text-transform:uppercase;letter-spacing:.1em;margin-top:2px}
-.feat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);border-radius:10px;overflow:hidden;margin-top:36px}
-.feat{background:var(--card);padding:24px;transition:background .15s}
-.feat:hover{background:var(--elevated)}
-.feat-icon{font-size:20px;margin-bottom:12px}
-.feat-title{font-weight:600;font-size:14px;color:var(--white);margin-bottom:6px}
-.feat-text{font-size:12px;color:var(--sub);line-height:1.7}
-.agent-section{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:28px;margin-top:36px;display:flex;gap:24px;align-items:flex-start}
-.agent-avatar{width:56px;height:56px;border-radius:50%;background:var(--g135);display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:700;color:#000;flex-shrink:0;font-family:var(--sg)}
-.agent-info{flex:1}
-.agent-name-lg{font-size:18px;font-weight:700;color:var(--white);margin-bottom:3px}
-.agent-role-lg{font-family:var(--jb);font-size:10px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px}
-.agent-bio{font-size:13px;color:var(--sub);line-height:1.7;margin-bottom:14px}
-.agent-status{display:flex;align-items:center;gap:7px;font-family:var(--jb);font-size:10px;color:var(--muted)}
-.status-dot{width:6px;height:6px;border-radius:50%;background:var(--muted)}
-.status-dot.on{background:#22d3ee}
-.steps-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:10px;overflow:hidden;margin-top:36px}
-.step{background:var(--card);padding:28px 24px}
-.step-n{font-family:var(--jb);font-size:10px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px}
-.step-title{font-weight:600;font-size:15px;color:var(--white);margin-bottom:8px}
-.step-text{font-size:12px;color:var(--sub);line-height:1.7}
-.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:36px}
-.price-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:28px 22px;text-align:center}
-.price-card.featured{border-color:#222}
-.price-grad{height:3px;background:var(--g);margin:-28px -22px 24px;border-radius:10px 10px 0 0}
-.price-name{font-family:var(--jb);font-size:9px;color:var(--muted);letter-spacing:.12em;text-transform:uppercase;margin-bottom:12px}
-.price-val{font-size:36px;font-weight:700;color:var(--white);line-height:1}
-.price-period{font-size:11px;color:var(--muted);margin-bottom:20px;margin-top:3px}
-.price-list{list-style:none;text-align:left;margin-bottom:24px}
-.price-list li{font-size:12px;color:var(--sub);padding:7px 0;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px}
-.price-list li:last-child{border-bottom:none}
-.price-check{width:12px;height:2px;border-radius:1px;background:var(--g);flex-shrink:0}
-.connected-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:6px;margin-top:28px}
-.connected{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:16px;transition:border-color .15s;display:block}
-.connected:hover{border-color:#333}
-.connected-name{font-weight:600;font-size:13px;color:var(--white);margin-bottom:3px}
-.connected-line{font-size:11px;color:var(--sub)}
-.connected-url{font-family:var(--jb);font-size:9px;color:var(--muted);margin-top:8px}
-footer{border-top:1px solid var(--border);padding:40px 0}
-.footer-inner{max-width:1000px;margin:0 auto;padding:0 24px}
-.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:32px;margin-bottom:32px}
-.footer-brand{font-weight:700;font-size:15px;color:var(--white);margin-bottom:6px;display:flex;align-items:center;gap:8px}
-.footer-brand-bar{width:16px;height:3px;border-radius:2px;background:var(--g)}
-.footer-tagline{font-family:var(--jb);font-size:9px;color:var(--muted);letter-spacing:.1em}
-.footer-col h4{font-family:var(--jb);font-size:9px;color:var(--muted);letter-spacing:.12em;text-transform:uppercase;margin-bottom:12px}
-.footer-col a{display:block;font-size:12px;color:var(--sub);padding:3px 0;transition:color .15s}
-.footer-col a:hover{color:var(--white)}
-.footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:20px;border-top:1px solid var(--border);flex-wrap:wrap;gap:12px}
-.footer-copy{font-family:var(--jb);font-size:9px;color:var(--muted)}
-#br-chat-fab{position:fixed;bottom:24px;right:24px;z-index:9999;width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#FF6B2B,#FF2255,#CC00AA,#8844FF);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(255,107,43,.4);transition:transform .2s}
-#br-chat-fab:hover{transform:scale(1.1)}
-#br-chat-fab svg{width:22px;height:22px;fill:#fff}
-#br-chat-panel{position:fixed;bottom:88px;right:24px;z-index:9998;width:330px;max-height:500px;background:#0a0a0a;border:1px solid #1a1a1a;border-radius:14px;display:none;flex-direction:column;box-shadow:0 20px 60px rgba(0,0,0,.8);overflow:hidden}
-#br-chat-panel.open{display:flex}
-#br-chat-head{padding:12px 14px;background:#111;border-bottom:1px solid #1a1a1a;display:flex;align-items:center;gap:10px}
-#br-chat-av{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#FF6B2B,#8844FF);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#fff;font-family:'Space Grotesk',sans-serif;flex-shrink:0}
-#br-chat-info{flex:1;min-width:0}
-#br-chat-nm{font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:600;color:#f5f5f5}
-#br-chat-rl{font-family:'JetBrains Mono',monospace;font-size:9px;color:#737373;margin-top:1px}
-#br-chat-st{display:flex;align-items:center;gap:5px;margin-top:2px}
-.br-sdot{width:6px;height:6px;border-radius:50%;background:#444}
-.br-sdot.on{background:#22d3ee}
-#br-chat-sl{font-size:9px;color:#737373;font-family:'JetBrains Mono',monospace}
-#br-chat-x{background:none;border:none;color:#737373;font-size:16px;cursor:pointer;padding:0}
-#br-chat-msgs{flex:1;overflow-y:auto;padding:10px;display:flex;flex-direction:column;gap:8px;min-height:180px}
-#br-chat-msgs::-webkit-scrollbar{width:3px}
-#br-chat-msgs::-webkit-scrollbar-thumb{background:#1a1a1a;border-radius:2px}
-.br-msg{max-width:85%;padding:7px 11px;border-radius:10px;font-size:12px;line-height:1.5;font-family:'Space Grotesk',sans-serif}
-.br-msg.user{align-self:flex-end;background:linear-gradient(135deg,rgba(255,107,43,.15),rgba(136,68,255,.15));border:1px solid rgba(136,68,255,.3);color:#f5f5f5}
-.br-msg.agent{align-self:flex-start;background:#111;border:1px solid #1a1a1a;color:#d4d4d4}
-.br-msg.think{align-self:flex-start;background:#0a0a0a;border:1px solid #1a1a1a;color:#444;font-style:italic;font-family:'JetBrains Mono',monospace;font-size:10px}
-#br-chat-intro{padding:8px 10px;font-size:11px;color:#737373;font-family:'JetBrains Mono',monospace;text-align:center;line-height:1.5}
-#br-chat-row{padding:8px 10px;background:#111;border-top:1px solid #1a1a1a;display:flex;gap:7px}
-#br-chat-in{flex:1;background:#0a0a0a;border:1px solid #1a1a1a;border-radius:7px;padding:7px 10px;font-size:12px;color:#f5f5f5;font-family:'Space Grotesk',sans-serif;outline:none;resize:none;height:36px;line-height:1.4}
-#br-chat-in:focus{border-color:rgba(136,68,255,.4)}
-#br-chat-go{background:linear-gradient(135deg,#FF2255,#8844FF);border:none;border-radius:7px;width:36px;height:36px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-#br-chat-go svg{width:14px;height:14px;fill:#fff}
-@media(max-width:768px){.nav-links{display:none}.hero{padding:100px 16px 60px}.hero-stats{gap:24px}.pricing-grid{grid-template-columns:1fr}.steps-row{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr 1fr;gap:24px}.feat-grid{grid-template-columns:1fr 1fr}}
-@media(max-width:480px){.feat-grid{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr}}
-</style>
+<head><style id="br-grayscale">:root{--bg:#000!important;--card:#080808!important;--border:#191919!important;--text:#d4d4d4!important;--muted:#777!important;--dim:#3a3a3a!important;--pink:#888!important;--amber:#999!important;--blue:#777!important;--violet:#666!important;--green:#999!important;--primary:#999!important;--secondary:#777!important;--accent:#aaa!important}html,body{background:#000!important;color:#d4d4d4!important}*{border-color:#191919!important}a{color:#bbb!important}a:hover{color:#fff!important}button,input,select,textarea{background:#0a0a0a!important;color:#d4d4d4!important;border-color:#333!important}h1,h2,h3,h4,h5,h6{color:#e0e0e0!important}iframe,img,video,canvas{filter:none!important}svg:not(iframe svg){filter:grayscale(1)!important}[class*="dot"],[class*="badge"]{filter:grayscale(1)!important}</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vault — Secrets and Key Management Mockup</title>
+  <link rel="stylesheet" href="mockup-base.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    html, body { height:100%; overflow:hidden; }
+    body { background:radial-gradient(circle at top left, rgba(255,107,43,.08), transparent 24%), radial-gradient(circle at bottom right, rgba(68,136,255,.08), transparent 26%), var(--bg); color:var(--text); font-family:var(--sg); display:flex; flex-direction:column; }
+    .grad { height:3px; background:var(--g); }
+    .topbar { height:58px; border-bottom:1px solid var(--border); background:rgba(0,0,0,.95); backdrop-filter:blur(16px); display:flex; align-items:center; gap:14px; padding:0 18px; }
+    .brand { display:flex; align-items:center; gap:10px; min-width:220px; }
+    .brand-mark { width:34px; height:34px; border-radius:10px; background:var(--white); color:#000; display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:800; }
+    .brand-copy { display:flex; flex-direction:column; line-height:1.05; }
+    .brand-title { font-size:15px; font-weight:700; }
+    .brand-sub { font-family:var(--jb); font-size:10px; color:var(--muted); text-transform:uppercase; letter-spacing:.1em; }
+    :root{--in:'Inter',sans-serif}
+    .search { flex:1; max-width:500px; height:38px; border-radius:10px; border:1px solid var(--border); background:var(--card); display:flex; align-items:center; padding:0 12px; color:var(--sub); font-size:13px; font-family:var(--in); }
+    .top-actions { margin-left:auto; display:flex; gap:10px; }
+    .chip { padding:8px 12px; border-radius:999px; background:var(--card); border:1px solid var(--border); color:var(--sub); font-size:11px; font-family:var(--jb); }
+    .btn { padding:8px 12px; border:none; border-radius:9px; background:var(--white); color:#000; font-size:12px; font-weight:700; }
+    .shell { display:grid; grid-template-columns:80px 280px 1fr 330px; flex:1; min-height:0; }
+    .rail { background:var(--card); border-right:1px solid var(--border); display:flex; flex-direction:column; align-items:center; gap:10px; padding:14px 0; }
+    .rail-btn { width:46px; height:46px; border-radius:14px; background:var(--elevated); border:1px solid transparent; display:flex; align-items:center; justify-content:center; color:var(--sub); font-size:16px; }
+    .rail-btn.active { color:var(--white); background:var(--hover); border-color:#323232; }
+    .sidebar, .context { padding:18px 16px; overflow:auto; }
+    .sidebar { background:radial-gradient(circle at top right, rgba(255,255,255,.03), transparent 28%), #050505; border-right:1px solid var(--border); }
+    .context { background:var(--card); border-left:1px solid var(--border); }
+    .section-label { font-family:var(--jb); font-size:10px; color:var(--muted); text-transform:uppercase; letter-spacing:.12em; margin-bottom:8px; }
+    .card, .secret-card, .context-row, .metric, .policy-card { background:var(--card); border:1px solid var(--border); border-radius:12px; }
+    .card, .secret-card, .context-row, .metric, .policy-card { padding:14px; }
+    .card h2, .secret-card h3, .policy-card h3 { font-size:16px; margin-bottom:6px; }
+    .card p, .secret-card p, .policy-card p, .row-copy span { color:var(--sub); font-size:12px; line-height:1.6; font-family:var(--in); }
+    .stack { display:flex; flex-direction:column; gap:10px; }
+    .main { background:linear-gradient(180deg, rgba(12,12,12,.96), rgba(0,0,0,1)); display:grid; grid-template-rows:auto auto 1fr; min-height:0; }
+    .hero { padding:18px; border-bottom:1px solid var(--border); display:grid; grid-template-columns:1.15fr .85fr; gap:16px; }
+    .hero-panel, .snapshot { background:linear-gradient(135deg, rgba(255,255,255,.08), rgba(255,255,255,.02)); border:1px solid rgba(255,255,255,.08); border-radius:16px; padding:18px; }
+    .hero h1 { font-size:28px; line-height:1.08; margin-bottom:10px; }
+    .hero p, .snapshot p { color:var(--sub); font-size:13px; line-height:1.7; font-family:var(--in); }
+    .metrics { display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:12px; margin-top:16px; }
+    .metric-label { font-family:var(--jb); font-size:10px; color:var(--muted); text-transform:uppercase; letter-spacing:.1em; }
+    :root{--in:'Inter',sans-serif}
+    .metric-value { font-size:22px; font-weight:700; margin-top:8px; }
+    .metric-note { color:var(--sub); font-size:12px; margin-top:4px; }
+    .tabs { height:48px; display:flex; gap:18px; align-items:center; padding:0 18px; border-bottom:1px solid var(--border); background:var(--card); }
+    .tab { font-size:13px; color:var(--sub); padding-bottom:11px; border-bottom:2px solid transparent; }
+    .tab.active { color:var(--white); border-color:#fff; }
+    .security-strip { padding:0 18px 18px; display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:14px; } .security-card { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:14px; } .security-card h3 { font-size:15px; margin-bottom:8px; } .security-card p { color:var(--sub); font-size:12px; line-height:1.6; margin-bottom:12px; } .security-meta { display:flex; justify-content:space-between; gap:10px; font-family:var(--jb); font-size:10px; color:var(--muted); } .content { padding:18px; display:grid; grid-template-columns:1.05fr .95fr; gap:16px; min-height:0; }
+    .secret-list { display:flex; flex-direction:column; gap:10px; }
+    .secret-card, .context-row { display:flex; justify-content:space-between; gap:10px; }
+    .badge { font-family:var(--jb); font-size:10px; color:var(--muted); padding:4px 8px; border-radius:999px; background:var(--elevated); border:1px solid var(--border); height:fit-content; }
+    .row-copy strong { display:block; font-size:13px; margin-bottom:4px; }
+    .mono { font-family:var(--jb); font-size:10px; color:var(--muted); }
+  </style>
 </head>
 <body>
-
-<div class="grad-bar"></div>
-
-<!-- NAV -->
-<nav>
-<div class="nav-inner">
-  <a href="https://blackroad.io" class="nav-logo"><span class="nav-logo-bar"></span>BlackRoad</a>
-  <div class="nav-links">
-    <a href="https://os.blackroad.io">OS</a>
-    <a href="https://roadtrip.blackroad.io">Agents</a>
-    <a href="https://roadie.blackroad.io">Tutor</a>
-    <a href="https://roadwork.blackroad.io">Work</a>
-    <a href="https://highway.blackroad.io">Dashboard</a>
-    <a href="#pricing">Pricing</a>
-  </div>
-  <a href="https://roadchain.blackroad.io"><button class="btn btn-white">Open RoadChain</button></a>
-</div>
-</nav>
-
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-tag"><span class="hero-dot"></span>Sovereign Identity & Ledger</div>
-  <h1 class="hero-title">RoadChain</h1>
-  <p class="hero-sub">Your identity. Your transactions. Gematria reads the patterns so you never miss a signal.</p>
-  <div class="hero-actions">
-    <a href="https://roadchain.blackroad.io"><button class="btn btn-white btn-lg">Open RoadChain</button></a>
-    <a href="https://pay.blackroad.io"><button class="btn btn-outline btn-lg">Go Pro — $19/mo</button></a>
-  </div>
-  <div class="hero-stats">
-    <div class="hero-stat"><div class="hero-stat-n">1</div><div class="hero-stat-l">Identity</div></div>
-    <div class="hero-stat"><div class="hero-stat-n">∞</div><div class="hero-stat-l">Transactions</div></div>
-    <div class="hero-stat"><div class="hero-stat-n">0</div><div class="hero-stat-l">Custodians</div></div>
-    <div class="hero-stat"><div class="hero-stat-n">27</div><div class="hero-stat-l">Watchers</div></div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- FEATURES -->
-<section class="section" id="features">
-<div class="container">
-  <div class="section-num">01 — Features</div>
-  <div class="section-title">Built Different</div>
-  <div class="section-desc">Every feature in RoadChain is designed for sovereignty, continuity, and speed.</div>
-  <div class="feat-grid">
-    <div class="feat"><div class="feat-icon">🔗</div><div class="feat-title">Sovereign Identity</div><div class="feat-text">Your RoadChain ID is yours. No bank. No platform. Gematria monitors every event in real time.</div></div>
-    <div class="feat"><div class="feat-icon">📊</div><div class="feat-title">Pattern Analysis</div><div class="feat-text">Gematria decodes symbolic patterns across transactions, spotting anomalies before they matter.</div></div>
-    <div class="feat"><div class="feat-icon">🔐</div><div class="feat-title">Zero Custody</div><div class="feat-text">RoadChain never holds your keys. The ledger is yours, on your terms, with your rules.</div></div>
-    <div class="feat"><div class="feat-icon">🌐</div><div class="feat-title">Cross-Product</div><div class="feat-text">RoadCoin, RoadWork, CarKeys — all tied to your RoadChain identity. One ledger, all products.</div></div>
-  </div>
-</div>
-</section>
-
-<div class="divider"></div>
-
-<!-- AGENT -->
-<section class="section" id="agent">
-<div class="container">
-  <div class="section-num">02 — Your Agent</div>
-  <div class="section-title">Meet Gematria</div>
-  <div class="section-desc">Gematria is your dedicated RoadChain agent — always online, always remembering.</div>
-  <div class="agent-section">
-    <div class="agent-avatar">G</div>
-    <div class="agent-info">
-      <div class="agent-name-lg">Gematria</div>
-      <div class="agent-role-lg">Symbolic Analyst / Chain Operator</div>
-      <div class="agent-bio">I'm Gematria — I read patterns in numbers, names, and chains. Every transaction, every block, every identity on RoadChain flows through my analysis.</div>
-      <div class="agent-status"><span class="status-dot" id="agent-sdot"></span><span id="agent-slabel">checking status...</span></div>
-    </div>
-  </div>
-</div>
-</section>
-
-<div class="divider"></div>
-
-<!-- HOW IT WORKS -->
-<section class="section" id="how">
-<div class="container">
-  <div class="section-num">03 — How It Works</div>
-  <div class="section-title">Three Steps</div>
-  <div class="section-desc">No onboarding. No tutorials. RoadChain works the way you think.</div>
-  <div class="steps-row">
-    <div class="step"><div class="step-n">01 — Claim</div><div class="step-title">Your Chain ID</div><div class="step-text">Generate your sovereign identity on RoadChain. One address. All 18 products recognize it.</div></div>
-    <div class="step"><div class="step-n">02 — Transact</div><div class="step-title">Write to the Ledger</div><div class="step-text">Every payment, transfer, and event is recorded. Gematria analyzes each entry in real time.</div></div>
-    <div class="step"><div class="step-n">03 — Verify</div><div class="step-title">Read the Patterns</div><div class="step-text">Gematria surfaces insights from your chain history. Anomalies caught. Patterns revealed.</div></div>
-  </div>
-</div>
-</section>
-
-<div class="divider"></div>
-
-<!-- PRICING -->
-<section class="section" id="pricing">
-<div class="container">
-  <div class="section-num">04 — Pricing</div>
-  <div class="section-title">Join the Road</div>
-  <div class="section-desc">Start free. Go Pro when you're ready. Enterprise for teams who need everything.</div>
-  <div class="pricing-grid">
-<div class="price-card">
-  <div class="price-name">Free</div>
-  <div class="price-val">$0</div>
-  <div class="price-period">forever</div>
-  <ul class="price-list">
-    <li><span class="price-check"></span>Core access</li>
-    <li><span class="price-check"></span>Basic agent chat</li>
-    <li><span class="price-check"></span>Community support</li>
-    <li><span class="price-check"></span>Public data only</li>
-  </ul>
-  <a href="https://roadchain.blackroad.io"><button class="btn btn-outline" style="width:100%">Get Started</button></a>
-</div>
-<div class="price-card featured">
-  <div class="price-grad"></div>
-  <div class="price-name">Pro</div>
-  <div class="price-val">$19</div>
-  <div class="price-period">per month</div>
-  <ul class="price-list">
-    <li><span class="price-check"></span>Unlimited access</li>
-    <li><span class="price-check"></span>All 27 agents</li>
-    <li><span class="price-check"></span>Persistent memory</li>
-    <li><span class="price-check"></span>Priority routing</li>
-    <li><span class="price-check"></span>RoadCoin rewards</li>
-  </ul>
-  <a href="https://pay.blackroad.io"><button class="btn btn-white" style="width:100%">Go Pro</button></a>
-</div>
-<div class="price-card">
-  <div class="price-name">Enterprise</div>
-  <div class="price-val">$99</div>
-  <div class="price-period">per month</div>
-  <ul class="price-list">
-    <li><span class="price-check"></span>Everything in Pro</li>
-    <li><span class="price-check"></span>Custom agents</li>
-    <li><span class="price-check"></span>Private Pi fleet</li>
-    <li><span class="price-check"></span>SLA + audit logs</li>
-    <li><span class="price-check"></span>White label</li>
-  </ul>
-  <a href="mailto:alexa@blackroad.io"><button class="btn btn-outline" style="width:100%">Contact Us</button></a>
-</div>
-  </div>
-</div>
-</section>
-
-<div class="divider"></div>
-
-<!-- CONNECTED -->
-<section class="section" id="connected">
-<div class="container">
-  <div class="section-num">05 — Connected Products</div>
-  <div class="section-title">Rides the Highway</div>
-  <div class="section-desc">RoadChain connects natively with every product on the BlackRoad highway.</div>
-  <div class="connected-grid">
-    <a href="https://roadcoin.blackroad.io" class="connected"><div class="connected-name">RoadCoin</div><div class="connected-line">The economy</div><div class="connected-url">roadcoin.blackroad.io</div></a>
-    <a href="https://carkeys.blackroad.io" class="connected"><div class="connected-name">CarKeys</div><div class="connected-line">The vault</div><div class="connected-url">carkeys.blackroad.io</div></a>
-    <a href="https://roadwork.blackroad.io" class="connected"><div class="connected-name">RoadWork</div><div class="connected-line">Business ops</div><div class="connected-url">roadwork.blackroad.io</div></a>
-    <a href="https://os.blackroad.io" class="connected"><div class="connected-name">BlackRoad OS</div><div class="connected-line">The desktop</div><div class="connected-url">os.blackroad.io</div></a>
-  </div>
-</div>
-</section>
-
-<div class="grad-bar"></div>
-<footer>
-<div class="footer-inner">
-  <div class="footer-grid">
-    <div>
-      <div class="footer-brand"><span class="footer-brand-bar"></span>BlackRoad OS</div>
-      <div class="footer-tagline">REMEMBER THE ROAD. PAVE TOMORROW.</div>
-    </div>
-    <div class="footer-col">
-      <h4>Products</h4>
-      <a href="https://os.blackroad.io">BlackRoad OS</a>
-      <a href="https://roadtrip.blackroad.io">RoadTrip</a>
-      <a href="https://roadie.blackroad.io">Roadie</a>
-      <a href="https://roadview.blackroad.io">RoadView</a>
-      <a href="https://roadwork.blackroad.io">RoadWork</a>
-      <a href="https://roadcode.blackroad.io">RoadCode</a>
-    </div>
-    <div class="footer-col">
-      <h4>More</h4>
-      <a href="https://backroad.blackroad.io">BackRoad</a>
-      <a href="https://roadbook.blackroad.io">RoadBook</a>
-      <a href="https://roadworld.blackroad.io">RoadWorld</a>
-      <a href="https://carkeys.blackroad.io">CarKeys</a>
-      <a href="https://roadcoin.blackroad.io">RoadCoin</a>
-      <a href="https://highway.blackroad.io">Highway</a>
-    </div>
-    <div class="footer-col">
-      <h4>Company</h4>
-      <a href="https://pay.blackroad.io">Pricing</a>
-      <a href="https://github.com/BlackRoadOS">GitHub</a>
-      <a href="https://huggingface.co/BlackRoad-OS">HuggingFace</a>
-      <a href="https://roadside.blackroad.io">Support</a>
-      <a href="mailto:alexa@blackroad.io">Contact</a>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <div class="footer-copy">&copy; 2026 BlackRoad OS, Inc. Delaware C-Corp. All rights reserved.</div>
-  </div>
-</div>
-</footer>
-
-<!-- Agent status check -->
-<script>
-(function(){
-  var dot=document.getElementById('agent-sdot');
-  var lbl=document.getElementById('agent-slabel');
-  if(!dot||!lbl)return;
-  fetch('https://roadtrip.blackroad.io/api/agents',{mode:'cors'})
-    .then(function(r){return r.json()})
-    .then(function(agents){
-      var a=agents.find(function(x){return x.id==='gematria'});
-      if(a&&a.online){dot.className='status-dot on';lbl.textContent='online — Gematria is ready'}
-      else{dot.className='status-dot';lbl.textContent='available — Gematria responds to messages'}
-    }).catch(function(){lbl.textContent='available'});
-})();
-</script>
-
-
-<button id="br-chat-fab" title="Chat with Gematria">
-  <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 10H6v-2h12v2zm0-3H6V7h12v2z"/></svg>
-</button>
-<div id="br-chat-panel">
-  <div id="br-chat-head">
-    <div id="br-chat-av">G</div>
-    <div id="br-chat-info">
-      <div id="br-chat-nm">Gematria</div>
-      <div id="br-chat-rl">Symbolic Analyst / Chain Operator</div>
-      <div id="br-chat-st"><span class="br-sdot" id="br-sdot"></span><span id="br-chat-sl">checking...</span></div>
-    </div>
-    <button id="br-chat-x">✕</button>
-  </div>
-  <div id="br-chat-msgs"><div id="br-chat-intro">Chat with Gematria — BlackRoad AI</div></div>
-  <div id="br-chat-row">
-    <textarea id="br-chat-in" placeholder="Ask Gematria..." rows="1"></textarea>
-    <button id="br-chat-go"><svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg></button>
-  </div>
-</div>
-<script>
-(function(){
-  var ID='gematria',NAME='Gematria',API='https://roadtrip.blackroad.io/api';
-  var fab=document.getElementById('br-chat-fab'),panel=document.getElementById('br-chat-panel');
-  var closeBtn=document.getElementById('br-chat-x'),msgs=document.getElementById('br-chat-msgs');
-  var inp=document.getElementById('br-chat-in'),go=document.getElementById('br-chat-go');
-  var sdot=document.getElementById('br-sdot'),sl=document.getElementById('br-chat-sl');
-  var open=false;
-  fab.addEventListener('click',function(){open=!open;panel.className=open?'open':''});
-  closeBtn.addEventListener('click',function(){open=false;panel.className=''});
-  fetch(API+'/agents',{mode:'cors'}).then(function(r){return r.json()}).then(function(a){
-    var ag=a.find(function(x){return x.id===ID});
-    if(ag&&ag.online){sdot.className='br-sdot on';sl.textContent='online'}else{sdot.className='br-sdot';sl.textContent='available'}
-  }).catch(function(){sl.textContent='available'});
-  function addMsg(t,c){var d=document.createElement('div');d.className='br-msg '+c;d.textContent=t;msgs.appendChild(d);msgs.scrollTop=msgs.scrollHeight;return d}
-  function send(){
-    var t=inp.value.trim();if(!t)return;inp.value='';
-    addMsg(t,'user');var th=addMsg(NAME+' is thinking...','think');
-    fetch(API+'/chat',{method:'POST',mode:'cors',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:t,agent:ID,to:ID,sender:'user'})})
-      .then(function(r){return r.json()}).then(function(d){th.remove();addMsg(d.reply&&d.reply.content?d.reply.content:'...','agent')})
-      .catch(function(){th.remove();addMsg('Connection error. Try again.','think')});
-  }
-  go.addEventListener('click',send);
-  inp.addEventListener('keydown',function(e){if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();send()}});
-})();
-</script>
-
+  <div class="grad"></div>
+  <header class="topbar"><div class="brand"><div class="brand-mark">VA</div><div class="brand-copy"><div class="brand-title">Vault</div><div class="brand-sub">Secrets, credentials, and key management</div></div></div><div class="search">Search secrets, keys, environments, rotations, policies, and service identities...</div><div class="top-actions"><div class="chip">ENCRYPTED</div><div class="chip">ROTATION READY</div><button class="btn">Create Secret</button></div></header>
+  <div class="shell"><aside class="rail"><div class="rail-btn active">⌺</div><div class="rail-btn">⌕</div><div class="rail-btn">⌘</div><div class="rail-btn">◫</div><div class="rail-btn">☰</div><div class="rail-btn">✓</div></aside><aside class="sidebar"><div><div class="section-label">Security core</div><div class="card"><h2>Protect sensitive values</h2><p>Vault handles secrets management, credential storage, and encryption-key workflows for products, environments, and services.</p></div></div><div><div class="section-label">Secret classes</div><div class="stack"><div class="policy-card"><h3>API credentials</h3><p>Product integrations, service keys, and environment-bound access tokens.</p></div><div class="policy-card"><h3>Signing keys</h3><p>Material used for trust, attestations, encryption, and sensitive automation.</p></div><div class="policy-card"><h3>Rotation policy</h3><p>Automated expiry, re-issuance, and audit visibility for critical secrets.</p></div></div></div></aside><main class="main"><section class="hero"><div class="hero-panel"><div class="section-label">Secrets platform</div><h1>Store sensitive values safely and make access explicit.</h1><p>Vault is the secure layer for credentials, tokens, and keys. It reduces accidental exposure by centralizing storage, permissions, and rotation while keeping audit visibility high.</p><div class="metrics"><div class="metric"><div class="metric-label">Secrets stored</div><div class="metric-value">1,942</div><div class="metric-note">Across products and environments</div></div><div class="metric"><div class="metric-label">Keys rotating</div><div class="metric-value">84</div><div class="metric-note">Scheduled or policy-driven updates</div></div><div class="metric"><div class="metric-label">Access checks</div><div class="metric-value">28.6k</div><div class="metric-note">Daily reads mediated by policy</div></div></div></div><div class="snapshot"><div class="section-label">Risk view</div><h2>Vault snapshot</h2><p>Surface stale credentials, risky sharing patterns, and secrets that need rotation before they become incidents.</p><div class="stack" style="margin-top:14px"><div class="context-row"><div class="row-copy"><strong>Rotation due</strong><span>Three environment keys reach their scheduled rotation window today.</span></div><div class="mono">TODAY</div></div><div class="context-row"><div class="row-copy"><strong>Policy clean</strong><span>No unexpected broad-read grants on the highest-sensitivity groups.</span></div><div class="mono">GOOD</div></div><div class="context-row"><div class="row-copy"><strong>Prism aligned</strong><span>Vault access remains linked to the current identity and review model.</span></div><div class="mono">SYNC</div></div></div></div></section><div class="tabs"><div class="tab active">Secrets</div><div class="tab">Keys</div><div class="tab">Policies</div><div class="tab">Rotation</div><div class="tab">Audit</div></div><section class="security-strip"><div class="security-card"><div class="section-label">Exposure control</div><h3>Secrets rarely need to be seen</h3><p>Vault gets stronger when raw secret visibility feels exceptional and most workflows route through usage, policy, and rotation abstractions instead.</p><div class="security-meta"><span>LOW VISIBILITY</span><span>STRICT</span></div></div><div class="security-card"><div class="section-label">Rotation rhythm</div><h3>Expiry becomes routine</h3><p>Key replacement, environment isolation, and recovery planning read more like regular operating hygiene than emergency-only security work.</p><div class="security-meta"><span>ROTATION</span><span>SCHEDULED</span></div></div><div class="security-card"><div class="section-label">Linked controls</div><h3>Prism and Vault cooperate</h3><p>Identity, approvals, and secret usage now feel visibly connected so high-sensitivity actions inherit the same trust boundaries across products.</p><div class="security-meta"><span>PRISM-LINKED</span><span>REVIEWABLE</span></div></div></section><section class="content"><div><div class="section-label">Secret inventory</div><div class="secret-list"><div class="secret-card"><div><strong>Production API cluster</strong><p>Core service credentials with restricted read scope and staged rotation plan.</p></div><div class="badge">STRICT</div></div><div class="secret-card"><div><strong>Preview env bundle</strong><p>Temporary keys for safe testing and local-to-preview promotion workflows.</p></div><div class="badge">ROTATE</div></div><div class="secret-card"><div><strong>Signing material</strong><p>Keys used for document trust, provenance, and ledger-backed verification paths.</p></div><div class="badge">HIGH</div></div></div></div><div><div class="section-label">Policies</div><div class="stack"><div class="policy-card"><h3>Least privilege by default</h3><p>Most users and Roadies should never see raw secret values directly.</p></div><div class="policy-card"><h3>Environment isolation</h3><p>Preview, production, and local keys stay separate to limit blast radius.</p></div><div class="policy-card"><h3>Explicit rotation lanes</h3><p>Every critical secret class gets an owner, cadence, and failure-handling path.</p></div></div></div></section></main><aside class="context"><div><div class="section-label">Audit feed</div><div class="stack"><div class="context-row"><div class="row-copy"><strong>Secret rotated</strong><span>One payment-service credential replaced and propagated successfully.</span></div><div class="mono">+05m</div></div><div class="context-row"><div class="row-copy"><strong>Access denied</strong><span>An over-broad read attempt was blocked by current policy boundaries.</span></div><div class="mono">+12m</div></div><div class="context-row"><div class="row-copy"><strong>Key escrow checked</strong><span>Backup key material remains available for approved recovery procedures.</span></div><div class="mono">+21m</div></div></div></div><div><div class="section-label">Quick actions</div><div class="stack"><div class="policy-card"><h3>Rotate now</h3><p>Trigger a guided rotation flow for a selected secret group or key class.</p></div><div class="policy-card"><h3>Review access</h3><p>Compare who can read or use a secret against current policy expectations.</p></div><div class="policy-card"><h3>Open incident mode</h3><p>Lock down, revoke, and replace sensitive material during a suspected exposure.</p></div></div></div></aside></div>
 </body>
 </html>
